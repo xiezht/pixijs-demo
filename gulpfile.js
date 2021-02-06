@@ -6,7 +6,7 @@ const source = require('vinyl-source-stream');
 
 function devServer(cb) {
   connect.server({
-    root: './build/demo01',
+    root: './build',
     livereload: true
   });
   cb();
@@ -14,23 +14,23 @@ function devServer(cb) {
 
 // 打包html到dev目录
 function html() {
-  return gulp.src('./demo01/*.html')
-    .pipe(gulp.dest('./build/demo01'))
+  return gulp.src('./src/*.html')
+    .pipe(gulp.dest('./build'))
     .pipe(connect.reload());
 }
 
 function jsTask() {
   return browserify({
-      entries: 'demo01/app.js'
+      entries: 'src/app.js'
     })
     .bundle()
     .pipe(source('app.js'))
-    .pipe(gulp.dest('build/demo01/js'));
+    .pipe(gulp.dest('build/js'));
 }
 
 function watch(cb) {
-  gulp.watch('./demo01/*.html', html);
-  gulp.watch('./demo01/app.js', gulp.series(jsTask, html));
+  gulp.watch('./src/*.html', html);
+  gulp.watch('./src/app.js', gulp.series(jsTask, html));
   cb();
 }
 
