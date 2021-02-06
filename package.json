@@ -10,7 +10,8 @@
   "devDependencies": {
     "browserify": "^17.0.0",
     "gulp": "^4.0.2",
-    "gulp-connect": "^5.7.0"
+    "gulp-connect": "^5.7.0",
+    "vinyl-source-stream": "^2.0.0"
   },
   "repository": {
     "type": "git",

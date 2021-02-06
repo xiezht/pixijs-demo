@@ -1,6 +1,8 @@
 const gulp = require('gulp');
 const browserify = require('browserify');
 const connect = require('gulp-connect');
+const source = require('vinyl-source-stream');
+
 
 function devServer(cb) {
   connect.server({
@@ -18,18 +20,17 @@ function html() {
 }
 
 function jsTask() {
-  const browserifyObj = browserify({
-    entries: 'demo01/app.js'
-  }).transform('babelify', {
-    presets: ["@babel/preset-env", "es2015"]
-  });
-  return browserifyObj.bundle()
-    .pipe(gulp.dest('build/demo01/js/'));
+  return browserify({
+      entries: 'demo01/app.js'
+    })
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(gulp.dest('build/demo01/js'));
 }
 
 function watch(cb) {
   gulp.watch('./demo01/*.html', html);
-  gulp.watch('./demo01/app.js', jsTask);
+  gulp.watch('./demo01/app.js', gulp.series(jsTask, html));
   cb();
 }
 
