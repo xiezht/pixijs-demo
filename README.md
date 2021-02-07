@@ -1,6 +1,6 @@
 # pixijs demo
 
-PIXIJS 渲染练习实践demo。
+PIXIJS 实践demo。
 
 顺带学习一下gulp打包方式。
 
