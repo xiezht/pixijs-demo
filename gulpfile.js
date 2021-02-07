@@ -1,8 +1,8 @@
 const gulp = require('gulp');
-const browserify = require('browserify');
 const connect = require('gulp-connect');
+const browserify = require('browserify');
+const babelify = require('babelify');
 const source = require('vinyl-source-stream');
-
 
 function devServer(cb) {
   connect.server({
@@ -22,6 +22,9 @@ function html() {
 function jsTask() {
   return browserify({
       entries: 'src/app.js'
+    })
+    .transform(babelify, {
+      presets: ['@babel/preset-env']
     })
     .bundle()
     .pipe(source('app.js'))

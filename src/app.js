@@ -1,4 +1,4 @@
-const PIXI = require('pixi.js');
+import PIXI from 'pixi.js';
 
 let type = "WebGL";
 if(!PIXI.utils.isWebGLSupported()){
@@ -6,4 +6,3 @@ if(!PIXI.utils.isWebGLSupported()){
 }
 PIXI.utils.sayHello(type);
 
-console.log('测试app.js文件改变3');
