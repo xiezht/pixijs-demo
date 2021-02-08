@@ -8,9 +8,51 @@ PIXI.utils.sayHello(type);
 
 
 window.onload = function() {
+  /**
+   * @param {PIXI.Application} app
+   */
+  function renderImage(app) {
+    const loader = PIXI.Loader.shared;
+    return new Promise((resolve, reject) => {
+      loader
+      .add('images/textures/texture.json')
+      .load((t, resources) => {
+        const sheet = resources['images/textures/texture.json'];
+        const sprite = new PIXI.Sprite(sheet.textures['tree03.png']);
+        sprite.vx = 1;
+        sprite.vy = 1;
+        app.stage.addChild(sprite);
+        const slogan = new PIXI.Text('Hello world');
+        app.stage.addChild(slogan);
+        // app.ticker.add(delta => {
+        //   sprite.x += 1;
+        // });
+        resolve();
+        // app.stage.addChild(new PIXI.Sprite())
+      })
+    });
+  }
+  /**
+   * 
+   * @param {PIXI.Application} app
+   */
+  function renderMap(app) {
+    const loader = PIXI.Loader.shared;
+    return new Promise((resolve, reject) => {
+      loader.add('images/textures/map-bg-05.jpg')
+      .load((t, resources) => {
+        let mapBg = new PIXI.Sprite(resources['images/textures/map-bg-05.jpg'].texture);
+        app.stage.addChild(mapBg);
+        resolve();
+      });
+    });
+  }
+  function doResize() {
+    app.renderer.resize(window.innerWidth, window.innerHeight);
+  };
 
-  const app = new PIXI.Application({
-  });
+  const app = new PIXI.Application();
+
   app.renderer.backgroundColor = 0xcccccc;
   // app.renderer.view.style.position = "absolute";
   app.renderer.view.style.display = "block";
@@ -19,26 +61,12 @@ window.onload = function() {
   window.addEventListener('resize', doResize);
 
   document.body.appendChild(app.view);
-  renderImage(app);
+  renderMap(app)
+    .then(() => {
+      return renderImage(app);
+    })
+    .catch(err => {
+      console.error(err);
+    })
 
-  function doResize() {
-    app.renderer.resize(window.innerWidth, window.innerHeight);
-  };
-
-  /**
-   * @param {PIXI.Application} app
-   */
-  function renderImage(app) {
-    const loader = PIXI.Loader.shared;
-    loader.add('images/akali.jpg').load(
-      (tLoader, resources) => {
-        Object.keys(resources).forEach(item => {
-          const sprite = new PIXI.Sprite(loader.resources[item].texture);
-          app.stage.addChild(sprite);
-          sprite.width = 900;
-          sprite.height = 450;
-        });
-      }
-    );
-  }
 }

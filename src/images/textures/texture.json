@@ -1,0 +1,81 @@
+{"frames": {
+
+"chengbao.png":
+{
+	"frame": {"x":0,"y":392,"w":290,"h":528},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":290,"h":528},
+	"sourceSize": {"w":290,"h":528}
+},
+"grass01.png":
+{
+	"frame": {"x":242,"y":0,"w":251,"h":168},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":251,"h":168},
+	"sourceSize": {"w":251,"h":168}
+},
+"grass02.png":
+{
+	"frame": {"x":0,"y":0,"w":242,"h":158},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":242,"h":158},
+	"sourceSize": {"w":242,"h":158}
+},
+"stone01.png":
+{
+	"frame": {"x":1006,"y":0,"w":261,"h":392},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":261,"h":392},
+	"sourceSize": {"w":261,"h":392}
+},
+"stone02.png":
+{
+	"frame": {"x":622,"y":0,"w":384,"h":389},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":384,"h":389},
+	"sourceSize": {"w":384,"h":389}
+},
+"tree.png":
+{
+	"frame": {"x":807,"y":392,"w":549,"h":716},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":549,"h":716},
+	"sourceSize": {"w":549,"h":716}
+},
+"tree02.png":
+{
+	"frame": {"x":290,"y":392,"w":517,"h":687},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":517,"h":687},
+	"sourceSize": {"w":517,"h":687}
+},
+"tree03.png":
+{
+	"frame": {"x":493,"y":0,"w":129,"h":216},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":216},
+	"sourceSize": {"w":129,"h":216}
+}},
+"animations": {
+	"grass": ["grass01.png","grass02.png"],
+	"stone": ["stone01.png","stone02.png"],
+	"tree": ["tree02.png","tree03.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "texture.png",
+	"format": "RGBA8888",
+	"size": {"w":1356,"h":1108},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:82c57349b90763562230d209cdd989e9:b997ccfaa86c7cf958754c5381c031f9:88db1022cd6b660616541d2788fcd4f7$"
+}
+}

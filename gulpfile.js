@@ -33,7 +33,7 @@ function jsTask() {
 }
 
 function copyAssets() {
-  return gulp.src('./src/images/*')
+  return gulp.src('./src/images/**/*')
     .pipe(gulp.dest('./build/images'));
 }
 
